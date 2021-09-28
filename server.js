@@ -13,10 +13,12 @@ app.use(cors());
 app.get('/moviecameras', (req, res) => {
     // "talking back" -- sending a response back to whoever is calling
 res.json(moviecameras);
+
 })
 
 app.get('/moviecameras/:id', (req, res) => {
-        const matchingmoviecamera = moviecameras.find(camera => moviecameras.id === Number(req.params.id));
+        const matchingmoviecamera = moviecameras.find(camera => camera.id === Number(req.params.id));
+        res.json(matchingmoviecamera);
 });
 
 module.exports = { app }
